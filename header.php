@@ -5,12 +5,12 @@
  * Date: 2016/8/18
  * Time: 20:26
  */
-
+require_once "functions.php";
 echo "<!DOCTYPE html>
 <html>
     <head>
         <script src='OSC.js'></script>";
-require_once "functions.php";
+
 session_start();
 
 $userstr = ' (Guest)';
@@ -27,12 +27,12 @@ else
     echo $loggedin = FALSE;
 }
 //  链接外部样式表
-echo "<title>$appname$userstr</title>.
-      <link rel='stylesheet' href='style.css' type='text/css'>.  
+echo "<title>$appName$userstr</title>
+      <link rel='stylesheet' href='style.css' type='text/css'>
       </head>
       <body>
-      <canvas id='logo' width='624' height='96'>$appname</canvas>
-      <div class='appname'>$appname$userstr</div></body>
+      <canvas id='logo' width='624' height='96'>$appName</canvas>
+      <div class='appname'>$appName$userstr</div></body>
       <script src='javascript.js'></script>";
 
 if ($loggedin)
@@ -44,7 +44,8 @@ if ($loggedin)
           <li><a href='messages.php'>Messages</a></li>
           <li><a href='profile.php'>Edit Profile</a></li>
           <li><a href='logout.php'>Log out</a> </li>
-    </ul></br>";
+              </ul>
+          </br>";
 }
 else
 {
@@ -52,7 +53,6 @@ else
         <li><a href='index.php'>Home</a></li>             
         <li><a href='signup.php'>Sign up</a></li>
         <li><a href='login.php'>Log in</a></li></ul><br>
-        <span class='info'>&#8658; You must be logged in to
-        view this page.</span><br><br>";
+        <span class='info'>&#8658; You must be logged in to view this page</span><br/><br/>";
 }
 ?>
