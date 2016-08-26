@@ -12,18 +12,16 @@ function checkUser(user)
 {
     if (user.value =='')
     {
-        O('info').innerHtml = ''
-            return
+//        O('info').innerHtml = ''
+        document.getElementById('info').innerHTML = ''
+        return
     }
-    
-}
-
 param = "user=" + user.value
 request = new ajaxRequest()
-request.open("Post","checkuser.php",true)
+request.open("POST","checkuser.php",true)
 request.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
-request.setRequestHeader("Content_length",params.length)
-request.setRequestHeader("Connection","close"
+request.setRequestHeader("Content_length",param.length)
+request.setRequestHeader("Connection","close")
 
 request.onreadystatechange = function ()
  {
@@ -32,8 +30,9 @@ request.onreadystatechange = function ()
             if (this.status == 200)
             {
                 if (this.responseText!= null)
-                {
-                    O('info').innerHTML = this.responseText
+                {          
+//                    O('info').innerHTML = this.responseText
+                      document.getElementById('info').innerHTML = this.responseText
                 }
                 else alert("Ajax error:NO data received")
             }
@@ -42,7 +41,8 @@ request.onreadystatechange = function ()
          
     }
 
-request.send(params)
+request.send(param)
+}
 
 function ajaxRequest()
     {
@@ -103,10 +103,9 @@ if (isset($_POST['user']))
 }
 
 echo <<<_END
-<form method = 'POST' action = signup.php>$error
+<form method = 'POST' action = signup.php>$error<br/>
 <span class = 'fieldname'>Username</span>
-<input type = 'text' maxlength = '16' name = 'user' value = '$user' onBlur = 'checkUser(this)'/>
-<span id = 'info'></span><br/>
+<input type = 'text' maxlength = '16' name = 'user' value = '$user' onBlur = 'checkUser(this)'/><span id = 'info'></span><br/>
 <span class = 'fieldname'>Password </span>
 <input type = 'text' maxlength = '16'name = 'pass' value = '$pass'/><br/>
 
@@ -114,4 +113,5 @@ echo <<<_END
 <input type = 'submit' value = 'Sign up'/>
 </form></div></br></body></html>
 _END;
+
 ?>
