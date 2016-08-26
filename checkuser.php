@@ -10,7 +10,6 @@ include_once "functions.php";
 if (isset($_POST['user']))
 {
     $user = santizeString($db_server,$_POST['user']);
-    echo $user;
     if (mysqli_num_rows(queryMysql($db_server,"SELECT * FROM members WHERE user = '$user'")))
         echo "<span class='taken'>&#x2718; Sorry, this username is taken</span>";
     else
