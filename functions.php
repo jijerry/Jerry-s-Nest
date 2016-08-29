@@ -55,12 +55,12 @@ function santizeString($db_server ,$var)
 }
 
 //显示用户图像和关于文件
-function showProfile($user)
+function showProfile($db_server,$user)
 {
     if (file_exists("user.jpg"))    //检查文件或者目录是否存在,括号内文件名或者路径
         echo "<img src = 'user.jpg' align = 'left'/>";  //插入图片
 
-    $result = queryMysql("SELECT * FROM profiles WHERE user = '$user'");    //查询可以采用sprintf函数接收全部变量的值赋给%s
+    $result = queryMysql($db_server,"SELECT * FROM profiles WHERE user = '$user'");    //查询可以采用sprintf函数接收全部变量的值赋给%s
     if (mysqli_num_rows($result))
     {
         $row = mysqli_fetch_row($result);
