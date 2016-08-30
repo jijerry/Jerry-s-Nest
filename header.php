@@ -38,7 +38,7 @@ echo "<title>$appName$userstr</title>
 if ($loggedin)
 {
     echo "<br><ul class='menu'>
-          <li><a href='member.php?view=$user'></a></li>
+          <li><a href='member.php?view=$user'>Home</a></li>
           <li><a href='member.php'>Members</a> </li>
           <li><a href='frends.php'>Frends</a> </li>
           <li><a href='messages.php'>Messages</a></li>

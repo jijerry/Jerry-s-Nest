@@ -32,7 +32,8 @@ if (isset($_POST['user']))
         {
             $_SESSION['user'] = $user;
             $_SESSION['pass'] = $pass;
-            die("You are now logged in,please <a href = 'members.php? view =$user'>click here</a> to continue<br/><br/>");
+            //向member.php页面传递view参数值，方式为get
+            die("You are now logged in,please <a href = 'member.php? view =$user'>click here</a> to continue<br/><br/>");
         }
     }
 }
